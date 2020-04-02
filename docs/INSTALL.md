@@ -28,8 +28,8 @@ Our experiments are conducted on the following environment:
 2. Clone the PyRetri repository.
 
 ```she
-git clone https://github.com/???
-cd ???
+git clone https://github.com/hby96/pyretri.git
+cd pyretri
 ```
 
 3. Install PyRetri.
