@@ -1,0 +1,7 @@
+# -*- coding: utf-8 -*-
+numpy
+torch>=1.1
+torchvision>=0.4
+sklearn
+yacs
+tqdm

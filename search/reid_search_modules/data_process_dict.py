@@ -1,0 +1,34 @@
+# -*- coding: utf-8 -*-
+
+from utils.search_modules import SearchModules
+from retrieval_tool_box.config import get_defaults_cfg
+
+data_processes = SearchModules()
+
+data_processes.add(
+    "Direct256128",
+    {
+        "batch_size": 32,
+        "folder": {
+            "name": "Folder"
+        },
+        "collate_fn": {
+            "name": "CollateFn"
+        },
+        "transformers": {
+            "names": ["DirectResize", "TwoFlip", "ToTensor", "Normalize"],
+            "DirectResize": {
+                "size": (256, 128),
+                "interpolation": 3
+            },
+            "Normalize": {
+                "mean": [0.485, 0.456, 0.406],
+                "std": [0.229, 0.224, 0.225]
+            }
+        }
+    }
+)
+
+cfg = get_defaults_cfg()
+
+data_processes.check_valid(cfg["datasets"])
