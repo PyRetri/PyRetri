@@ -1,0 +1,83 @@
+# retrieval settings
+
+datasets:
+  # number of images in a batch.
+  batch_size: 16
+
+  # function for stacking images in a batch.
+  collate_fn:
+    name: "CollateFn"  # name of the collate_fn.
+
+  # function for loading images.
+  folder:
+    name: "Folder"  # name of the folder.
+
+  # a list of data augmentation functions.
+  transformers:
+    names: ["ShorterResize", "CenterCrop", "ToCaffeTensor", "Normalize"]  # names of transformers.
+    ShorterResize:
+      size: 256  # target size of the shorter edge.
+    CenterCrop:
+      size: 224  # target size of the crop img.
+    Normalize:
+      mean: [104, 116, 124]
+      std: [1.0, 1.0, 1.0]
+
+model:
+  name: "vgg16"  # name of the model.
+  vgg16:
+    load_checkpoint: "/data/places365_model/vgg16_hybrid1365.pt"  # path of the model checkpoint, If it is started with "torchvision://", the model will be loaded from torchvision.
+
+extract:
+  # way to assemble features if transformers produce multiple images (e.g. TwoFlip, TenCrop). 0 means concat these features and 1 means sum these features.
+  assemble: 0
+
+  # function for assigning output features.
+  extractor:
+    name: "VggSeries"  # name of the extractor.
+    VggSeries:
+      extract_features: ["pool5"]  # name of the output feature map. If it is ["all"], then all available features will be output.
+
+  # function for splitting the output features (e.g. PCB).
+  splitter:
+    name: "Identity"  # name of the function for splitting features.
+
+  # a list of pooling functions.
+  aggregators:
+    names: ["GAP"]  # names of aggregators.
+
+index:
+  # path of the query set features and gallery set features.
+  query_fea_dir: "/data/features/best_features/oxford/query"
+  gallery_fea_dir: "/data/features/best_features/oxford/gallery"
+
+  # name of the features to be loaded. It should be "output feature map" + "_" + "aggregation".
+  # If there are multiple elements in the list, they will be concatenated on the channel-wise.
+  feature_names: ["pool5_GAP"]
+
+  # a list of dimension process functions.
+  dim_processors:
+    names: ["L2Normalize", "SVD", "L2Normalize"]
+    SVD:
+      proj_dim: 511  # the dimension after reduction. If it is 0, then no reduction will be done.
+      whiten: True  # whether do whiten when using SVD.
+      train_fea_dir: "/data/features/best_features/paris"  # path of the features for training SVD.
+      l2: True  # whether do l2-normalization on the training features.
+
+  # function for enhancing the quality of features.
+  feature_enhancer:
+    name: "Identity"  # name of the feature enhancer.
+
+  # function for calculating the distance between query features and gallery features.
+  metric:
+    name: "KNN"  # name of the metric.
+
+  # function for re-ranking the results.
+  re_ranker:
+    name: "Identity"  # name of the re-ranker.
+
+evaluate:
+  # function for evaluating results.
+  evaluator:
+    name: "OxfordOverAll"  # name of the evaluator.
+

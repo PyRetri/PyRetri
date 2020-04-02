@@ -1,0 +1,68 @@
+datasets:
+  batch_size: 16
+
+  collate_fn:
+    name: "CollateFn"
+
+  folder:
+    name: "Folder"
+
+  transformers:
+    names: ["DirectResize", "TwoFlip", "ToTensor", "Normalize"]
+    DirectResize:
+      size: (256, 128)
+      interpolation: 3
+    Normalize:
+      mean: [0.485, 0.456, 0.406]
+      std: [0.229, 0.224, 0.225]
+
+model:
+  name: "ft_net"
+  ft_net:
+    load_checkpoint: "/data/my_model_zoo/res50_market1501.pth"
+
+extract:
+  assemble: 1
+
+  extractor:
+    name: "ReIDSeries"
+    ReIDSeries:
+      extract_features: ["output"]
+
+  splitter:
+    name: "Identity"
+
+  aggregators:
+    names: ["GAP"]
+
+index:
+  query_fea_dir: "/data/features/best_features/market/query"
+  gallery_fea_dir: "/data/features/best_features/market/gallery"
+
+  feature_names: ['output']
+
+  dim_processors:
+    names: ["L2Normalize", "PCA", "L2Normalize"]
+    PCA:
+      proj_dim: 512  # the dimension after reduction. If it is 0, then no reduction will be done.
+      whiten: False  # whether do whiten when using PCA.
+      train_fea_dir: "/data/features/best_features/market/gallery"  # path of the features for training PCA.
+      l2: True  # whether do l2-normalization on the training features.
+
+  feature_enhancer:
+    name: "Identity"
+
+  metric:
+    name: "KNN"
+
+  re_ranker:
+    name: "KReciprocal"
+    KReciprocal:
+      k1: 20  # hyper-parameter for calculating jaccard distance.
+      k2: 6  # hyper-parameter for calculating local query expansion.
+      lambda_value: 0.3  # hyper-parameter for calculating the final distance.
+
+evaluate:
+  evaluator:
+    name: "ReIDOverAll"
+

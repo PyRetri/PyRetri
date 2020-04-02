@@ -1,0 +1,69 @@
+datasets:
+  batch_size: 16
+
+  collate_fn:
+    name: "CollateFn"
+
+  folder:
+    name: "Folder"
+
+  transformers:
+    names: ["ShorterResize", "CenterCrop", "ToCaffeTensor", "Normalize"]
+    ShorterResize:
+      size: 256
+    CenterCrop:
+      size: 224
+    Normalize:
+      mean: [104, 116, 124]
+      std: [1.0, 1.0, 1.0]
+
+model:
+  name: "vgg16"
+  vgg16:
+    load_checkpoint: "/data/places365_model/vgg16_hybrid1365.pt"
+
+extract:
+  assemble: 0
+
+  extractor:
+    name: "VggSeries"
+    VggSeries:
+      extract_features: ["pool5"]
+
+  splitter:
+    name: "Identity"
+
+  aggregators:
+    names: ["GAP"]
+
+index:
+  query_fea_dir: "/data/features/best_features/oxford/query"
+  gallery_fea_dir: "/data/features/best_features/oxford/gallery"
+
+  feature_names: ["pool5_GAP"]
+
+  dim_processors:
+    names: ["L2Normalize", "SVD", "L2Normalize"]
+    SVD:
+      proj_dim: 511
+      whiten: True
+      train_fea_dir: "/data/features/best_features/paris"
+      l2: True
+
+  feature_enhancer:
+    name: "Identity"
+
+  metric:
+    name: "KNN"
+
+  re_ranker:
+    name: "KReciprocal"
+    KReciprocal:
+      k1: 20  # hyper-parameter for calculating jaccard distance.
+      k2: 6  # hyper-parameter for calculating local query expansion.
+      lambda_value: 0.3  # hyper-parameter for calculating the final distance.
+
+evaluate:
+  evaluator:
+    name: "OxfordOverAll"
+

@@ -1,0 +1,77 @@
+# retrieval settings
+
+datasets:
+  # number of images in a batch.
+  batch_size: 16
+
+  # function for stacking images in a batch.
+  collate_fn:
+    name: "CollateFn"
+
+  # function for loading images.
+  folder:
+    name: "Folder"
+
+  # a list of data augmentation functions.
+  transformers:
+    names: ["DirectResize", "TwoFlip", "ToTensor", "Normalize"]  # names of transformers.
+    DirectResize:
+      size: (256, 128)  # target size of the output img.
+      interpolation: 3  # nearest interpolation
+    Normalize:
+      mean: [0.485, 0.456, 0.406]
+      std: [0.229, 0.224, 0.225]
+
+model:
+  name: "ft_net"  # name of the model.
+  ft_net:
+    load_checkpoint: "/home/songrenjie/projects/reID_baseline/model/ft_ResNet50/res50_duke.pth"  # path of the model checkpoint, If it is started with "torchvision://", the model will be loaded from torchvision.
+
+extract:
+  # way to assemble features if transformers produce multiple images (e.g. TwoFlip, TenCrop). 0 means concat these features and 1 means sum these features.
+  assemble: 1
+
+  # function for assigning output features.
+  extractor:
+    name: "ReIDSeries"  # name of the extractor.
+    ReIDSeries:
+      extract_features: ["output"]  # name of the output feature map. If it is ["all"], then all available features will be output.
+
+  # function for splitting the output features (e.g. PCB).
+  splitter:
+    name: "Identity"  # name of the function for splitting features.
+
+  # a list of pooling functions.
+  aggregators:
+    names: ["GAP"]  # names of aggregators.
+
+index:
+  # path of the query set features and gallery set features.
+  query_fea_dir: "/data/features/best_features/duke/query"
+  gallery_fea_dir: "/data/features/best_features/duke/gallery"
+
+  # name of the features to be loaded. It should be "output feature map" + "_" + "aggregation".
+  # If there are multiple elements in the list, they will be concatenated on the channel-wise.
+  feature_names: ['output']
+
+  # a list of dimension process functions.
+  dim_processors:
+    names: ["L2Normalize"]  # names of dimension processors.
+
+  # function for enhancing the quality of features.
+  feature_enhancer:
+    name: "Identity"  # name of the feature enhancer.
+
+  # function for calculating the distance between query features and gallery features.
+  metric:
+    name: "KNN"  # name of the metric.
+
+  # function for re-ranking the results.
+  re_ranker:
+    name: "Identity"  # name of the re-ranker.
+
+evaluate:
+  # function for evaluating results.
+  evaluator:
+    name: "ReIDOverAll"  # name of the evaluator.
+
