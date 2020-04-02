@@ -170,7 +170,7 @@ from ...registry import BACKBONES
 
 @BACKBONES.register
 class ft_net(BackboneBase):
-	def __init__(self):
+    def __init__(self):
         pass
 
     def forward(self, x):
