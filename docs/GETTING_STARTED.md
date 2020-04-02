@@ -12,11 +12,11 @@ The general object recognition dataset collects images with the same label in on
 # type: general
 general_recognition
 ├── class A
-│├── XXX.jpg
-│└── ···
+│   ├── XXX.jpg
+│   └── ···
 ├── class B
-│├── XXX.jpg
-│└── ···
+│   ├── XXX.jpg
+│   └── ···
 └── ···
 ```
 
@@ -26,11 +26,11 @@ Oxford5k is a typical dataset in image retrieval field and the folder structure 
 # type: oxford
 oxford
 ├── gt
-│├── XXX.txt
-│└── ···
+│   ├── XXX.txt
+│   └── ···
 └── images
-├── XXX.jpg
-└── ···
+    ├── XXX.jpg
+    └── ···
 
 ```
 
@@ -40,11 +40,11 @@ The person re-identification dataset have already split the query set and galler
 # type: reid
 person_re_identification
 ├── bounding_box_test
-│├── XXX.jpg
-│└── ···
+│   ├── XXX.jpg
+│   └── ···
 ├── query
-│├── XXX.jpg
-│└── ···
+│   ├── XXX.jpg
+│   └── ···
 └── ···
 ```
 
