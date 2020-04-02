@@ -4,7 +4,7 @@
 
 PyRetri is an open source deep learning-based image retrieval toolbox based on PyTorch.
 
-### Major features
+### Major Features
 
 - **Modular Design**
 
