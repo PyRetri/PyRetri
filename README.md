@@ -53,15 +53,15 @@ This project is released under the [Apache 2.0 license](https://github.com/hby96
 
 ## Installation
 
-Please refer to INSTALL.md for installation and dataset preparation.
+Please refer to [INSTALL.md](https://github.com/hby96/pyretri/blob/master/docs/INSTALL.md) for installation and dataset preparation.
 
 ## Get Started
 
-Please see GETTING_STARTED.md for the basic usage of PyRetri.
+Please see [GETTING_STARTED.md](https://github.com/hby96/pyretri/blob/master/docs/GETTING_STARTED.md) for the basic usage of PyRetri.
 
 ## Model Zoo
 
-Results and models are available in MODEL_ZOO.md.
+Results and models are available in [MODEL_ZOO.md](https://github.com/hby96/pyretri/blob/master/docs/MODEL_ZOO.md).
 
 ## Citation
 
