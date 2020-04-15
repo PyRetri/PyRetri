@@ -5,9 +5,9 @@ import os
 import pickle
 
 
-from retrieval_tool_box.config import get_defaults_cfg, setup_cfg
-from retrieval_tool_box.index import build_index_helper, feature_loader
-from retrieval_tool_box.evaluate import build_evaluate_helper
+from pyretri.config import get_defaults_cfg, setup_cfg
+from pyretri.index import build_index_helper, feature_loader
+from pyretri.evaluate import build_evaluate_helper
 
 
 def parse_args():

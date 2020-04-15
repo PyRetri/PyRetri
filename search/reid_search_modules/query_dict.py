@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from utils.search_modules import SearchModules
-from retrieval_tool_box.config import get_defaults_cfg
+from pyretri.config import get_defaults_cfg
 
 queries = SearchModules()
 evaluates = SearchModules()

@@ -2,7 +2,7 @@
 import argparse
 import os
 
-from retrieval_tool_box.extract.utils import split_dataset
+from pyretri.extract.utils import split_dataset
 
 
 def parse_args():

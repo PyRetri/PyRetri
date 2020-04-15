@@ -5,10 +5,10 @@ import os
 
 import torch
 
-from retrieval_tool_box.config import get_defaults_cfg, setup_cfg
-from retrieval_tool_box.datasets import build_folder, build_loader
-from retrieval_tool_box.models import build_model
-from retrieval_tool_box.extract import build_extract_helper
+from pyretri.config import get_defaults_cfg, setup_cfg
+from pyretri.datasets import build_folder, build_loader
+from pyretri.models import build_model
+from pyretri.extract import build_extract_helper
 
 from torchvision import models
 

@@ -160,7 +160,7 @@ We basically categorize retrieval process into 4 components.
 
 Here we show how to add your own model to extract features.
 
-1. Create your model file `retrieval_tool_box/models/backbone/backbone_impl/reid_baseline.py`.
+1. Create your model file `pyretri/models/backbone/backbone_impl/reid_baseline.py`.
 
 ```shell
 import torch.nn as nn
@@ -198,7 +198,7 @@ def ft_net():
     return model
 ```
 
-2. Import the module in `retrieval_tool_box/models/backbone/__init__.py`.
+2. Import the module in `pyretri/models/backbone/__init__.py`.
 
 ```shell
 from .backbone_impl.reid_baseline import ft_net

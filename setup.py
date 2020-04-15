@@ -10,7 +10,7 @@ MINOR = 1
 PATCH = 0
 SUFFIX = ''
 SHORT_VERSION = '{}.{}.{}{}'.format(MAJOR, MINOR, PATCH, SUFFIX)
-VERSION_FILE = 'retrieval_tool_box/version.py'
+VERSION_FILE = 'pyretri/version.py'
 
 
 def get_git_hash():
@@ -51,7 +51,7 @@ def get_hash():
         sha = get_git_hash()[:7]
     elif os.path.exists(VERSION_FILE):
         try:
-            from retrieval_tool_box.version import __version__
+            from pyretri.version import __version__
             sha = __version__.split('+')[-1]
         except ImportError:
             raise ImportError('Unable to get git version')
@@ -173,7 +173,7 @@ def parse_requirements(fname='requirements.txt', with_version=True):
 if __name__ == '__main__':
     write_version_py()
     setup(
-        name='retrieval_tool_box',
+        name='pyretri',
         version=get_version(),
         description='A Toolbox for Deep Learning-based Image Retrieval',
         long_description=readme(),

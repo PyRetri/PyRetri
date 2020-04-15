@@ -5,10 +5,10 @@ import importlib
 import os
 import argparse
 
-from retrieval_tool_box.config import get_defaults_cfg
-from retrieval_tool_box.query import build_query_helper
-from retrieval_tool_box.evaluate import build_evaluate_helper
-from retrieval_tool_box.index import feature_loader
+from pyretri.config import get_defaults_cfg
+from pyretri.query import build_query_helper
+from pyretri.evaluate import build_evaluate_helper
+from pyretri.index import feature_loader
 
 
 vgg_fea = ["pool5_PWA"]

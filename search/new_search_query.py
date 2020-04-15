@@ -7,9 +7,9 @@ import argparse
 
 from .utils.misc import check_exist, get_dir
 
-from retrieval_tool_box.config import get_defaults_cfg
-from retrieval_tool_box.index import build_index_helper, feature_loader
-from retrieval_tool_box.evaluate import build_evaluate_helper
+from pyretri.config import get_defaults_cfg
+from pyretri.index import build_index_helper, feature_loader
+from pyretri.evaluate import build_evaluate_helper
 
 
 vgg_fea = ["pool5_PWA"]

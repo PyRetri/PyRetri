@@ -5,11 +5,11 @@ import os
 from PIL import Image
 import numpy as np
 
-from retrieval_tool_box.config import get_defaults_cfg, setup_cfg
-from retrieval_tool_box.datasets import build_transformers
-from retrieval_tool_box.models import build_model
-from retrieval_tool_box.extract import build_extract_helper
-from retrieval_tool_box.index import build_index_helper, feature_loader
+from pyretri.config import get_defaults_cfg, setup_cfg
+from pyretri.datasets import build_transformers
+from pyretri.models import build_model
+from pyretri.extract import build_extract_helper
+from pyretri.index import build_index_helper, feature_loader
 
 
 def parse_args():
