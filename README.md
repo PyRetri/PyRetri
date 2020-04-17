@@ -60,4 +60,11 @@ If you use this toolbox in your research, please cite this project.
 
 ## Contacts
 
-This repo is currently maintained by Benyi Hu ([@hby96](https://github.com/hby96)).
+If you have any questions about our work, please do not hesitate to contact us by emails.
+
+Xiu-Shen Wei: [weixs.gm@gmail.com](mailto:weixs.gm@gmail.com)
+
+Renjie Song:
+
+Benyi Hu: [hby0906@stu.xjtu.edu.cn](hby0906@stu.xjtu.edu.cn)
+
