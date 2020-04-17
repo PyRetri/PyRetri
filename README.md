@@ -64,7 +64,7 @@ If you have any questions about our work, please do not hesitate to contact us b
 
 Xiu-Shen Wei: [weixs.gm@gmail.com](mailto:weixs.gm@gmail.com)
 
-Renjie Song:[songrenjie@megvii.com](mailto:songrenjie@megvii.com)
-
 Benyi Hu: [hby0906@stu.xjtu.edu.cn](mailto:hby0906@stu.xjtu.edu.cn)
+
+Renjie Song:[songrenjie@megvii.com](mailto:songrenjie@megvii.com)
 
