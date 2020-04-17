@@ -12,7 +12,7 @@ from utils.misc import save_to_csv, filter_by_keywords
 def parse_args():
     parser = argparse.ArgumentParser(description='A tool box for deep learning-based image retrieval')
     parser.add_argument('opts', default=None, nargs=argparse.REMAINDER)
-    parser.add_argument('--results_json_path', '-r', default=None, type=str, help="the path of the result json")
+    parser.add_argument('--results_json_path', '-r', default=None, type=str, help="path of the result json")
     args = parser.parse_args()
 
     return args

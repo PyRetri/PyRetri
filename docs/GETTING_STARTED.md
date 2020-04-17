@@ -4,7 +4,7 @@ This page provides basic tutorials about the usage of PyRetri. For installation 
 
 ## Make Data Json
 
-After the gallery set and query set are separated, we package the information of each subset in pickle format for further process. We use different types to package different structured folders: `general`, `oxford` and `reid`. 
+After the gallery set and query set are separated, we package the information of each sub-dataset in pickle format for further process. We use different types to package different structured folders: `general`, `oxford` and `reid`. 
 
 The general object recognition dataset collects images with the same label in one directory and the folder structure should be like this:
 
@@ -59,7 +59,7 @@ Auguments:
 - `data`: Path of the dataset for generating data json file.
 - `save_path`: Path for saving the output file.
 - `type`: Type of the dataset collecting images. For dataset collecting images with the same label in one directory, we use `general`. For oxford/paris dataset, we use `oxford`. For re-id dataset, we use `reid`.
-- `ground_truth`: Path of the gt information, which is necessary for generating data json file of oxford/paris dataset.
+- `ground_truth`: Optional. Path of the gt information, which is necessary for generating data json file of oxford/paris dataset.
 
 Examples:
 
@@ -84,7 +84,7 @@ Note: Oxford/Paris dataset contains the ground truth of each query image in a tx
 
 ## Extract
 
-All outputs (features and labels) will be saved to the save directory in pickle format.
+All outputs (features and labels) will be saved to the target directory in pickle format.
 
 Extract feature for each data json file by:
 
@@ -111,7 +111,7 @@ python3 main/extract_feature.py -dj data_jsons/caltech_query.json -sp /data/feat
 
 The path of query set features and gallery set features is specified in the config file.
 
-Index the query set features by:
+After extracting gallery set features and query set features, you can index the query set features by:
 
 ```shell
 python3 main/index.py [-cfg ${config_file}]
@@ -127,11 +127,11 @@ Examples:
 python3 main/index.py -cfg configs/caltech.yaml
 ```
 
-## Single Index
+## Single Image Index
 
 For visulization results and wrong case analysis, we provide the script for single query image and you can visualize or save the retrieval results easily. 
 
-Use this command to single index:
+Use this command to single image index:
 
 ```shell
 python3 main/single_index.py [-cfg ${config_file}]
@@ -304,7 +304,7 @@ python3 search_index.py -fd /data/features/gap_gmp_gem_crow_spoc/ -sm search_mod
 
 #### show search results
 
-We provide two ways to show the search results. One is save all the search results in a csv format file, which can be used for further analyses. The other is showing the search results according to the given keywords. You can define the keywords as follows:
+We provide two ways to show the search results. One is to save all the search results in a csv format file, which can be used for further analyses. Another is to show the search results according to the given keywords. You can define the keywords as follows:
 
 ```sh
 keywords = {
@@ -317,5 +317,21 @@ keywords = {
     }
 ```
 
-See show_search_results.py for more details.
+Show the search results by:
+
+```shell
+show_search_results.py [-r ${result_json_path}] 
+```
+
+Arguments:
+
+- `result_json_path`: path of the result json file.
+
+Examples:
+
+```shell
+show_search_results.py -r /data/features/gap_gmp_gem_crow_spoc_result.json
+```
+
+See [show_search_results.py](../search/show_search_results.py) for more details.
 

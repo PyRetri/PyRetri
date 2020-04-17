@@ -1,5 +1,7 @@
 # Model Zoo
 
+Here we provide the pre-trained models to help you reproduce our experimental results easily.
+
 ## General image retrieval
 
 ### pre-trained models

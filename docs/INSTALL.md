@@ -1,4 +1,4 @@
-# Installation
+Installation
 
 ## Requirements
 
@@ -76,6 +76,4 @@ python3 main/split_dataset.py -d /data/caltech101/ -sf main/split_file/caltech_s
 
 Then query folder and gallery folder will be created under the dataset folder.
 
-Note:
-
-1. For Re-ID dataset, the images are well divided in advance, so we do not need to split it.
+Note: For Re-ID dataset, the images are well divided in advance, so we do not need to split it.
