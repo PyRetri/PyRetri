@@ -24,7 +24,8 @@ def split_dataset(dataset_path: str, split_file: str) -> None:
                 dst_dir = dst[:len(dst) - dst_index]
                 if not os.path.isdir(dst_dir):
                     os.makedirs(dst_dir)
-                os.symlink(src, dst)
+                if not os.path.exists(dst):
+                    os.symlink(src, dst)
             elif is_gallery == '1':
                 src = os.path.join(dataset_path, path)
                 dst = src.replace(path.split('/')[0], 'gallery')
@@ -32,4 +33,5 @@ def split_dataset(dataset_path: str, split_file: str) -> None:
                 dst_dir = dst[:len(dst) - dst_index]
                 if not os.path.isdir(dst_dir):
                     os.makedirs(dst_dir)
-                os.symlink(src, dst)
+                if not os.path.exists(dst):
+                    os.symlink(src, dst)

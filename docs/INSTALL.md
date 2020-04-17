@@ -42,7 +42,7 @@ python3 setup.py install
 
 ### Datasets
 
-In our experiments, we use four general image retrieval dataset and two person re-identification dataset.
+In our experiments, we use four general image retrieval datasets and two person re-identification datasets.
 
 - [Oxford5k](https://www.robots.ox.ac.uk/~vgg/data/oxbuildings/): collecting crawling images from Flickr using the names of 11 different landmarks in Oxford, which stands for landmark recognition task.
 - [CUB-200-2011](http://www.vision.caltech.edu/visipedia/CUB-200-2011.html): containing photos of 200 bird species, which represents fine-grained visual categorization task.
@@ -51,13 +51,13 @@ In our experiments, we use four general image retrieval dataset and two person r
 - [Market-1501](http://www.liangzheng.com.cn/Project/project_reid.html): containing images taken on the Tsinghua campus under 6 camera viewpoints, representing person re-identification task.
 - [DukeMTMC-reID](https://drive.google.com/file/d/1jjE85dRCMOgRtvJ5RQV9-Afs-2_5dY3O/view): containing images captured by 8 cameras, which is more challenging.
 
-To reproduce our experimental results, you need to first download these datasets, then follow these steps to re-organize the dataset.
+To reproduce our experimental results, you need to first download these datasets, then follow the following step to re-organize the dataset.
 
 ### Split Dataset
 
 For image retrieval task, the dataset should be divided into two subset: query set and gallery set. If your dataset has been divided already, you can skip this step.
 
-In order to help you to reproduce our results conventionally, we provide several txt files, each of which is the division protocol used in our experiments. These txt files can be found in [split_file] and you can use the following command to split the dataset mentioned above: 
+In order to help you to reproduce our results conventionally, we provide four txt files, each of which is the division protocol used in our experiments. These txt files can be found in [split_file](main/split_file) and you can use the following command to split the dataset mentioned above:
 
 ```shell
 python3 main/split_dataset.py [-d ${dataset}] [-sf ${split_file}]
@@ -71,7 +71,7 @@ Arguments:
 Examples:
 
 ```shell
-python3 main/split_dataset.py -d /data/caltech101/ -sf split_file/caltech_split.txt
+python3 main/split_dataset.py -d /data/caltech101/ -sf main/split_file/caltech_split.txt
 ```
 
 Then query folder and gallery folder will be created under the dataset folder.
@@ -79,4 +79,3 @@ Then query folder and gallery folder will be created under the dataset folder.
 Note:
 
 1. For Re-ID dataset, the images are well divided in advance, so we do not need to split it.
-2. Since we use symlink images instead of copying images to split the dataset, the overwrite operation is prohibited. In other words, if you want to split the dataset again, please remember to delete the last generated folders.
