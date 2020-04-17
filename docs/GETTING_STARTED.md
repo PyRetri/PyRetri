@@ -147,7 +147,7 @@ Examples:
 python3 main/single_index.py -cfg configs/caltech.yaml
 ```
 
-Please see single_index.py for more details.
+Please see [single_index.py](../main/single_index.py) for more details.
 
 ## Add Your Own Module
 

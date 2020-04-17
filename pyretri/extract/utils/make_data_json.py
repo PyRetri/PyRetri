@@ -111,5 +111,5 @@ def make_data_json(dataset_path: str, save_path: str, type: str, gt_path: str or
         make_ds_for_general(dataset_path, save_path)
     elif type == 'oxford':
         make_ds_for_oxford(dataset_path, save_path, gt_path)
-    elif typem == 'reid':
+    elif type == 'reid':
         make_ds_for_reid(dataset_path, save_path)
