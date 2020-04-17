@@ -10,7 +10,7 @@ PyRetri is an open source deep learning-based image retrieval toolbox based on P
 
 - **Modular Design**: We decompose the deep learning-based image retrieval into several stages and one can easily construct a image retrieval pipeline by combining different modules.
 - **Flexible Loading**: The toolbox is able to adapt to load several types of model parameters, including parameters with the same keys and shape, parameters with different keys, and parameters with the same keys but different shapes.
-- **Support of  Multiple Methods**: The toolbox directly supports popluar methods designed fot deep learning-based image retrieval.
+- **Support of  Multiple Methods**: The toolbox directly supports several popluar methods designed for deep learning-based image retrieval, which are also suitable for person re-identification.
 - **Combinations Search Tool**: We provide the pipeline combinations search scripts to help users to find possible combinations of approaches with various hyper-parameters. 
 
 ### Supported Methods
