@@ -17,7 +17,7 @@ Pyretri is a versatile  deep learning-based image retrieval toolbox designed wit
 
 ### Supported Methods
 
-The toolbox supports several popluar methods and one can design and add their own modules.
+The toolbox supports several popluar methods and one can design and add your own modules.
 
 - **Pre-processing**
   - DirectReszie, PadResize, ShorterResize
