@@ -1,6 +1,6 @@
 # Getting started
 
-This page provides basic tutorials about the usage of PyRetri. For installation instructions and dataset preparation, please see [INSTALL.md] (INSTALL.md).
+This page provides basic tutorials about the usage of PyRetri. For installation instructions and dataset preparation, please see [INSTALL.md](../docs/INSTALL.md).
 
 ## Make Data Json
 
