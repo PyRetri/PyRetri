@@ -55,7 +55,12 @@ Results and models are available in [MODEL_ZOO.md](docs/MODEL_ZOO.md).
 If you use this toolbox in your research, please cite this project.
 
 ```shell
-
+@misc{pyretri,
+  title={pyretri},
+  author={Hu, Benyi and Song, Renjie and Wei, Xiushen},
+  howpublished={\url{https://github.com/hby96/pyretri}},
+  year={2020}
+}
 ```
 
 ## Contacts
@@ -66,5 +71,5 @@ Xiu-Shen Wei: [weixs.gm@gmail.com](mailto:weixs.gm@gmail.com)
 
 Benyi Hu: [hby0906@stu.xjtu.edu.cn](mailto:hby0906@stu.xjtu.edu.cn)
 
-Renjie Song:[songrenjie@megvii.com](mailto:songrenjie@megvii.com)
+Renjie Song: [songrenjie@megvii.com](mailto:songrenjie@megvii.com)
 
