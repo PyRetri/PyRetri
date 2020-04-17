@@ -66,5 +66,5 @@ Xiu-Shen Wei: [weixs.gm@gmail.com](mailto:weixs.gm@gmail.com)
 
 Renjie Song:
 
-Benyi Hu: [hby0906@stu.xjtu.edu.cn](hby0906@stu.xjtu.edu.cn)
+Benyi Hu: [hby0906@stu.xjtu.edu.cn](mailto:hby0906@stu.xjtu.edu.cn)
 
