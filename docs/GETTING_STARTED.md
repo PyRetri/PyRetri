@@ -67,7 +67,7 @@ Examples:
 # for dataset collecting images with the same label in one directory
 python3 main/make_data_json.py -d /data/caltech101/gallery/ -sp data_jsons/caltech_gallery.json -t general
 
-python3 main/make_data_json.py -d /data/caltech101/query/ -sp data_jsons/caltech_query.json -t feneral
+python3 main/make_data_json.py -d /data/caltech101/query/ -sp data_jsons/caltech_query.json -t general
 
 # for oxford/paris dataset
 python3 main/make_data_json.py -d /data/cbir/oxford/gallery/ -sp data_jsons/oxford_gallery.json -t oxford -gt /data/cbir/oxford/gt/
@@ -229,10 +229,10 @@ cd search/
 
 ### Define Search Space
 
-We decompose the search space into three sub search spaces: data_process, extract and index, each of which corresponds to a specified file. Search space is defined by  adding methods with hyper-parameters to a specified dict.  You can add a search operator as follows:
+We decompose the search space into three sub search spaces: pre_process, extract and index, each of which corresponds to a specified file. Search space is defined by  adding methods with hyper-parameters to a specified dict.  You can add a search operator as follows:
 
 ```shell
-data_processes.add(
+pre_processes.add(
     "PadResize224",
     {
         "batch_size": 32,
@@ -257,7 +257,7 @@ data_processes.add(
 )
 ```
 
-By doing this, a data_process operator named "PadResize224" is added to the data_process sub search space and will be searched in the following process. 
+By doing this, a pre_process operator named "PadResize224" is added to the data_process sub search space and will be searched in the following process.
 
 ### Search
 
@@ -287,7 +287,7 @@ python3 search_extract.py -sp /data/features/gap_gmp_gem_crow_spoc/ -sm search_m
 Search for the indexing combinations by:
 
 ```shell
-python3 search_query.py [-fd ${fea_dir}] [-sm ${search_modules}] [-sp ${save_path}]
+python3 search_index.py [-fd ${fea_dir}] [-sm ${search_modules}] [-sp ${save_path}]
 ```
 
 Arguments:
@@ -299,8 +299,23 @@ Arguments:
 Examples:
 
 ```shell
-python3 search_query.py -fd /data/features/gap_gmp_gem_crow_spoc/ -sm search_modules -sp /data/features/gap_gmp_gem_crow_spoc_result.json
+python3 search_index.py -fd /data/features/gap_gmp_gem_crow_spoc/ -sm search_modules -sp /data/features/gap_gmp_gem_crow_spoc_result.json
 ```
 
+#### show search results
 
+We provide two ways to show the search results. One is save all the search results in a csv format file, which can be used for further analyses. The other is showing the search results according to the given keywords. You can define the keywords as follows:
+
+```sh
+keywords = {
+        'data_name': ['market'],
+        'pre_process_name': list(),
+        'model_name': list(),
+        'feature_map_name': list(),
+        'aggregator_name': list(),
+        'post_process_name': ['no_fea_process', 'l2_normalize', 'pca_whiten', 'pca_wo_whiten'],
+    }
+```
+
+See show_search_results.py for more details.
 

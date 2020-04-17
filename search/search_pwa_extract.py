@@ -21,9 +21,9 @@ def load_datasets():
         "cub_query": os.path.join(data_json_dir, "cub_query.json"),
         "indoor_gallery": os.path.join(data_json_dir, "indoor_gallery.json"),
         "indoor_query": os.path.join(data_json_dir, "indoor_query.json"),
-        "caltech101_gallery": os.path.join(data_json_dir, "caltech101_gallery.json"),
-        "caltech101_query": os.path.join(data_json_dir, "caltech101_query.json"),
-        "paris": os.path.join(data_json_dir, "paris.json"),
+        "caltech_gallery": os.path.join(data_json_dir, "caltech_gallery.json"),
+        "caltech_query": os.path.join(data_json_dir, "caltech_query.json"),
+        "paris_all": os.path.join(data_json_dir, "paris.json"),
     }
     for data_path in datasets.values():
         assert os.path.exists(data_path), "non-exist dataset path {}".format(data_path)
@@ -48,25 +48,30 @@ def main():
     # init retrieval pipeline settings
     cfg = get_defaults_cfg()
 
-    data_processes = importlib.import_module("{}.data_process_dict".format(args.search_modules)).data_processes
+    # load search space
+    datasets = load_datasets()
+    pre_processes = importlib.import_module("{}.pre_process_dict".format(args.search_modules)).pre_processes
     models = importlib.import_module("{}.extract_dict".format(args.search_modules)).models
     extracts = importlib.import_module("{}.extract_dict".format(args.search_modules)).extracts
 
-    datasets = load_datasets()
-
     for data_name, data_args in datasets.items():
-        for data_proc_name, data_proc_args in data_processes.items():
+        for pre_proc_name, pre_proc_args in pre_processes.items():
             for model_name, model_args in models.items():
 
-                feature_full_name = data_process_name + "_" + dataset_name + "_" + model_name
+                feature_full_name = data_name + "_" + pre_proc_name + "_" + model_name
                 print(feature_full_name)
 
+                if os.path.exists(os.path.join(args.save_path, feature_full_name)):
+                    print("[Search Extract]: config exists...")
+                    continue
+
                 # load retrieval pipeline settings
-                cfg.datasets.merge_from_other_cfg(data_proc_args)
+                cfg.datasets.merge_from_other_cfg(pre_proc_args)
                 cfg.model.merge_from_other_cfg(model_args)
                 cfg.extract.merge_from_other_cfg(extracts[model_name])
 
-                pwa_train_fea_dir = os.path.join("/data/my_features/gap_gmp_gem_crow_spoc", feature_full_name)
+                # set train feature path for pwa
+                pwa_train_fea_dir = os.path.join("/data/features/test_gap_gmp_gem_crow_spoc", feature_full_name)
                 if "query" in pwa_train_fea_dir:
                     pwa_train_fea_dir.replace("query", "gallery")
                 elif "paris" in pwa_train_fea_dir:

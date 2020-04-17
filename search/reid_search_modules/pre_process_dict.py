@@ -3,9 +3,9 @@
 from utils.search_modules import SearchModules
 from pyretri.config import get_defaults_cfg
 
-data_processes = SearchModules()
+pre_processes = SearchModules()
 
-data_processes.add(
+pre_processes.add(
     "Direct256128",
     {
         "batch_size": 32,
@@ -31,4 +31,4 @@ data_processes.add(
 
 cfg = get_defaults_cfg()
 
-data_processes.check_valid(cfg["datasets"])
+pre_processes.check_valid(cfg["datasets"])

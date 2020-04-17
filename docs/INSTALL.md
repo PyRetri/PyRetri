@@ -35,7 +35,7 @@ cd pyretri
 3. Install PyRetri.
 
 ```shell
-python setup.py install
+python3 setup.py install
 ```
 
 ## Prepare Datasets

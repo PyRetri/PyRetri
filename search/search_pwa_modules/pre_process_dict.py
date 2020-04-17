@@ -3,9 +3,9 @@
 from utils.search_modules import SearchModules
 from pyretri.config import get_defaults_cfg
 
-data_processes = SearchModules()
+pre_processes = SearchModules()
 
-data_processes.add(
+pre_processes.add(
     "Shorter256Center224",
     {
         "batch_size": 32,
@@ -16,8 +16,8 @@ data_processes.add(
             "name": "CollateFn"
         },
         "transformers": {
-            "names": ["ResizeShorter", "CenterCrop", "ToTensor", "Normalize"],
-            "ResizeShorter": {
+            "names": ["ShorterResize", "CenterCrop", "ToTensor", "Normalize"],
+            "ShorterResize": {
                 "size": 256
             },
             "CenterCrop": {
@@ -31,7 +31,7 @@ data_processes.add(
     }
 )
 
-data_processes.add(
+pre_processes.add(
     "Direct224",
     {
         "batch_size": 32,
@@ -54,7 +54,7 @@ data_processes.add(
     }
 )
 
-data_processes.add(
+pre_processes.add(
     "PadResize224",
     {
         "batch_size": 32,
@@ -80,4 +80,4 @@ data_processes.add(
 
 cfg = get_defaults_cfg()
 
-data_processes.check_valid(cfg["datasets"])
+pre_processes.check_valid(cfg["datasets"])

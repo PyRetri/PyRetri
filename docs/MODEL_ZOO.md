@@ -35,7 +35,7 @@ Choosing the implementations mentioned above as baselines and adding some tricks
 
 For person re-identification, we use the model provided by [Person_reID_baseline](https://github.com/layumi/Person_reID_baseline_pytorch) and reproduce its resutls. In addition, we train a model on DukeMTMC-reID through the open source code for further experiments.
 
-###pre-trained models
+### pre-trained models
 
 | Training Set  | Backbone  | for Short | Download |
 | :-----------: | :-------: | :-------: | :------: |

@@ -65,6 +65,7 @@ class PartSVD(DimProcessorBase):
                 else:
                     proj_part_dim = self._hyper_params["proj_dim"] - already_proj_dim
                     assert proj_part_dim < ori_part_dim, "reduction dimension can not be distributed to each part!"
+                already_proj_dim += proj_part_dim
 
             svd = SKSVD(n_components=proj_part_dim)
             train_fea = fea[:, st_idx: ed_idx]
@@ -79,22 +80,23 @@ class PartSVD(DimProcessorBase):
             }
 
     def __call__(self, fea: np.ndarray) -> np.ndarray:
-        if self._hyper_params["proj_dim"] != 0:
-            ret = np.zeros(shape=(fea.shape[0], self._hyper_params["proj_dim"]))
-        else:
-            ret = np.zeros(shape=(fea.shape[0], fea.shape[1] - len(self.svds)))
+        fea_names = np.sort(list(self.svds.keys()))
+        ret = list()
 
-        for fea_name in self.svds:
+        for fea_name in fea_names:
             st_idx, ed_idx = self.svds[fea_name]["pos"][0], self.svds[fea_name]["pos"][1]
             svd = self.svds[fea_name]["svd"]
 
             proj_fea = fea[:, st_idx: ed_idx]
+            proj_fea = normalize(proj_fea, norm='l2')
             proj_fea = svd.transform(proj_fea)
             if self._hyper_params["whiten"]:
                 proj_fea = proj_fea / (self.svds[fea_name]["std"] + 1e-6)
+            proj_fea = normalize(proj_fea, norm='l2')
 
-            ret[:, st_idx: ed_idx] = proj_fea
+            ret.append(proj_fea)
 
+        ret = np.concatenate(ret, axis=1)
         return ret
 
 

@@ -5,13 +5,26 @@ import importlib
 import os
 import argparse
 
-from .utils.misc import check_exist, get_dir
+from utils.misc import check_result_exist, get_dir, get_default_result_dict
 
 from pyretri.config import get_defaults_cfg
 from pyretri.index import build_index_helper, feature_loader
 from pyretri.evaluate import build_evaluate_helper
 
 
+# # gap, gmp, gem, spoc, crow
+# vgg_fea = ["pool4_GAP", "pool4_GMP", "pool4_GeM", "pool4_SPoC", "pool4_Crow",
+#            "pool5_GAP", "pool5_GMP", "pool5_GeM", "pool5_SPoC", "pool5_Crow",
+#            "fc"]
+# res_fea = ["pool3_GAP", "pool3_GMP", "pool3_GeM", "pool3_SPoC", "pool4_Crow",
+#            "pool4_GAP", "pool4_GMP", "pool4_GeM", "pool4_SPoC", "pool4_Crow",
+#            "pool5_GAP", "pool5_GMP", "pool5_GeM", "pool5_SPoC", "pool5_Crow"]
+
+# # scda, rmca
+# vgg_fea = ["pool5_SCDA", "pool5_RMAC"]
+# res_fea = ["pool5_SCDA", "pool5_RMAC"]
+
+# pwa
 vgg_fea = ["pool5_PWA"]
 res_fea = ["pool5_PWA"]
 
@@ -80,8 +93,8 @@ def main():
 
     # load search space
     datasets = load_datasets()
-    queries = importlib.import_module("{}.query_dict".format(args.search_modules)).queries
-    evaluates = importlib.import_module("{}.query_dict".format(args.search_modules)).evaluates
+    indexes = importlib.import_module("{}.index_dict".format(args.search_modules)).indexes
+    evaluates = importlib.import_module("{}.index_dict".format(args.search_modules)).evaluates
 
     if os.path.exists(args.save_path):
         with open(args.save_path, "r") as f:
@@ -91,8 +104,10 @@ def main():
 
     for dir in os.listdir(args.fea_dir):
         for data_name, data_args in datasets.items():
-            for query_name, query_args in queries.items():
+            for index_name, index_args in indexes.items():
                 if data_name in dir:
+                    print(dir)
+
                     # get dirs
                     gallery_fea_dir, query_fea_dir, train_fea_dir = get_dir(args.fea_dir, dir, data_args)
 
@@ -102,19 +117,20 @@ def main():
                     # get feature names
                     fea_names = get_fea_names(gallery_fea_dir)
 
-                    for post_proc in query_args.post_processors.names:
-                        if post_proc in ["PartPCA", "PartSVD", "PCA", "SVD"]:
-                            query_args.post_processors[post_proc].train_fea_dir = train_fea_dir
+                    # set train feature path for dimension reduction processes
+                    for dim_proc in index_args.dim_processors.names:
+                        if dim_proc in ["PartPCA", "PartSVD", "PCA", "SVD"]:
+                            index_args.dim_processors[dim_proc].train_fea_dir = train_fea_dir
 
                     for fea_name in fea_names:
-                        result_dict = get_default_result_dict(dir, data_name, query_name, fea_name)
-                        if check_exist(result_dict, results):
+                        result_dict = get_default_result_dict(dir, data_name, index_name, fea_name)
+                        if check_result_exist(result_dict, results):
                             print("[Search Query]: config exists...")
                             continue
 
                         # load retrieval pipeline settings
-                        query_args.feature_names = [fea_name]
-                        cfg.index.merge_from_other_cfg(query_args)
+                        index_args.feature_names = [fea_name]
+                        cfg.index.merge_from_other_cfg(index_args)
                         cfg.evaluate.merge_from_other_cfg(evaluate_args)
 
                         # load features
@@ -122,12 +138,12 @@ def main():
                         gallery_fea, gallery_info, _ = feature_loader.load(gallery_fea_dir, [fea_name])
 
                         # build helper and index features
-                        query_helper = build_query_helper(cfg.query)
-                        query_result_info, _, _ = query_helper.do_query(query_fea, query_info, gallery_fea)
+                        index_helper = build_index_helper(cfg.index)
+                        index_result_info, _, _ = index_helper.do_index(query_fea, query_info, gallery_fea)
 
                         # build helper and evaluate results
                         evaluate_helper = build_evaluate_helper(cfg.evaluate)
-                        mAP, recall_at_k = evaluate_helper.do_eval(query_result_info, gallery_info)
+                        mAP, recall_at_k = evaluate_helper.do_eval(index_result_info, gallery_info)
 
                         # record results
                         to_save_recall = dict()

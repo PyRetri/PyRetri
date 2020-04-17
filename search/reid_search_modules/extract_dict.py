@@ -19,6 +19,7 @@ models.add(
 extracts.add(
     "market_res50",
     {
+        "assemble": 1,
         "extractor": {
             "name": "ReIDSeries",
             "ReIDSeries": {
@@ -39,13 +40,14 @@ models.add(
     {
         "name": "ft_net",
         "ft_net": {
-            "load_checkpoint": "/home/songrenjie/projects/reID_baseline/model/ft_ResNet50/net_59.pth"
+            "load_checkpoint": "/home/songrenjie/projects/reID_baseline/model/ft_ResNet50/res50_duke.pth"
         }
     }
 )
 extracts.add(
     "duke_res50",
     {
+        "assemble": 1,
         "extractor": {
             "name": "ReIDSeries",
             "ReIDSeries": {

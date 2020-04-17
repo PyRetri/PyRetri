@@ -84,7 +84,9 @@ class PartPCA(DimProcessorBase):
             pca = self.pcas[fea_name]["pca"]
 
             ori_fea = fea[:, st_idx: ed_idx]
-            proj_fea = pca.transform(ori_fea)
+            proj_fea = normalize(ori_fea, norm='l2')
+            proj_fea = pca.transform(proj_fea)
+            proj_fea = normalize(proj_fea, norm='l2')
 
             ret.append(proj_fea)
 

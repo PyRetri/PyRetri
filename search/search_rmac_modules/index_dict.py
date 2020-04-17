@@ -3,10 +3,10 @@
 from utils.search_modules import SearchModules
 from pyretri.config import get_defaults_cfg
 
-queries = SearchModules()
+indexes = SearchModules()
 evaluates = SearchModules()
 
-queries.add(
+indexes.add(
     "pca_wo_whiten",
     {
         "gallery_fea_dir": "",
@@ -14,16 +14,17 @@ queries.add(
 
         "feature_names": [],
 
-        "post_processor": {
-            "name": "PartPCA",
-            "PartPCA": {
+        "dim_processors": {
+            "names": ["L2Normalize", "PCA", "L2Normalize"],
+            "PCA": {
                 "whiten": False,
                 "train_fea_dir": "",
-                "proj_dim": 512
+                "proj_dim": 512,
+                "l2": True,
             }
         },
 
-        "database_enhance": {
+        "feature_enhancer": {
             "name": "Identity"
         },
 
@@ -31,13 +32,13 @@ queries.add(
             "name": "KNN"
         },
 
-        "re_rank": {
+        "re_ranker": {
             "name": "Identity"
         }
     }
 )
 
-queries.add(
+indexes.add(
     "pca_whiten",
     {
         "gallery_fea_dir": "",
@@ -45,16 +46,17 @@ queries.add(
 
         "feature_names": [],
 
-        "post_processor": {
-            "name": "PartPCA",
-            "PartPCA": {
+        "dim_processors": {
+            "names": ["L2Normalize", "PCA", "L2Normalize"],
+            "PCA": {
                 "whiten": True,
                 "train_fea_dir": "",
-                "proj_dim": 512
+                "proj_dim": 512,
+                "l2": True,
             }
         },
 
-        "database_enhance": {
+        "feature_enhancer": {
             "name": "Identity"
         },
 
@@ -62,13 +64,13 @@ queries.add(
             "name": "KNN"
         },
 
-        "re_rank": {
+        "re_ranker": {
             "name": "Identity"
         }
     }
 )
 
-queries.add(
+indexes.add(
     "svd_wo_whiten",
     {
         "gallery_fea_dir": "",
@@ -76,16 +78,17 @@ queries.add(
 
         "feature_names": [],
 
-        "post_processor": {
-            "name": "PartSVD",
-            "PartSVD": {
+        "dim_processors": {
+            "names": ["L2Normalize", "SVD", "L2Normalize"],
+            "SVD": {
                 "whiten": False,
                 "train_fea_dir": "",
-                "proj_dim": 511
+                "proj_dim": 511,
+                "l2": True,
             }
         },
 
-        "database_enhance": {
+        "feature_enhancer": {
             "name": "Identity"
         },
 
@@ -93,13 +96,13 @@ queries.add(
             "name": "KNN"
         },
 
-        "re_rank": {
+        "re_ranker": {
             "name": "Identity"
         }
     }
 )
 
-queries.add(
+indexes.add(
     "svd_whiten",
     {
         "gallery_fea_dir": "",
@@ -107,16 +110,17 @@ queries.add(
 
         "feature_names": [],
 
-        "post_processor": {
-            "name": "PartSVD",
-            "PartSVD": {
+        "dim_processors": {
+            "names": ["L2Normalize", "SVD", "L2Normalize"],
+            "SVD": {
                 "whiten": True,
                 "train_fea_dir": "",
-                "proj_dim": 511
+                "proj_dim": 511,
+                "l2": True,
             }
         },
 
-        "database_enhance": {
+        "feature_enhancer": {
             "name": "Identity"
         },
 
@@ -124,7 +128,7 @@ queries.add(
             "name": "KNN"
         },
 
-        "re_rank": {
+        "re_ranker": {
             "name": "Identity"
         }
     }
@@ -150,5 +154,5 @@ evaluates.add(
 
 cfg = get_defaults_cfg()
 
-queries.check_valid(cfg["query"])
+indexes.check_valid(cfg["index"])
 evaluates.check_valid(cfg["evaluate"])
