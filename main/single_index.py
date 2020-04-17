@@ -60,8 +60,9 @@ def main():
     index_helper = build_index_helper(cfg.index)
     index_result_info, query_fea, gallery_fea = index_helper.do_index(img_fea, img_fea_info, gallery_fea)
 
-    # index_helper.show_topk_retrieved_images(index_result_info[0], 4, gallery_info)
-    index_helper.save_topk_retrieved_images('../retrieved_images', index_result_info[0], 5, gallery_info)
+    index_helper.save_topk_retrieved_images('retrieved_images/', index_result_info[0], 5, gallery_info)
+
+    print('single index have done!')
 
 
 if __name__ == '__main__':
