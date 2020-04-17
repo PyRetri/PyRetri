@@ -57,7 +57,7 @@ To reproduce our experimental results, you need to first download these datasets
 
 For image retrieval task, the dataset should be divided into two subset: query set and gallery set. If your dataset has been divided already, you can skip this step.
 
-In order to help you to reproduce our results conventionally, we provide four txt files, each of which is the division protocol used in our experiments. These txt files can be found in [split_file](main/split_file) and you can use the following command to split the dataset mentioned above:
+In order to help you to reproduce our results conventionally, we provide four txt files, each of which is the division protocol used in our experiments. These txt files can be found in [split_file](../main/split_file) and you can use the following command to split the dataset mentioned above:
 
 ```shell
 python3 main/split_dataset.py [-d ${dataset}] [-sf ${split_file}]
