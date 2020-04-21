@@ -26,7 +26,7 @@ The toolbox supports several popluar and prominent methods of image retrieval an
   - ToTensor, ToCaffeTensor
   - Normalize
 - **Feature Representation**
-  - GAP, GMP
+  - Global Average Pooling (GAP), Global Max Pooling (GMP)
   - [R-MAC](https://arxiv.org/pdf/1511.05879.pdf), [SPoC](https://arxiv.org/pdf/1510.07493.pdf), [CroW](https://arxiv.org/pdf/1512.04065.pdf), [GeM](https://pdfs.semanticscholar.org/a2ca/e0ed91d8a3298b3209fc7ea0a4248b914386.pdf), [SCDA](http://www.weixiushen.com/publication/tip17SCDA.pdf), [PWA](https://arxiv.org/abs/1705.01247)
   - [PCB](http://openaccess.thecvf.com/content_ECCV_2018/papers/Yifan_Sun_Beyond_Part_Models_ECCV_2018_paper.pdf)
 - **Post-processing**
@@ -36,7 +36,7 @@ The toolbox supports several popluar and prominent methods of image retrieval an
 
 ## License
 
-This project is released under the [Apache 2.0 license](https://github.com/hby96/pyretri/blob/master/LICENSE).
+This project is released under the [Apache 2.0 license](LICENSE).
 
 ## Installation
 
