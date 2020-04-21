@@ -28,7 +28,7 @@ Our experiments are conducted on the following environment:
 2. Clone the PyRetri repository.
 
 ```she
-git clone https://github.com/hby96/pyretri.git
+git clone https://github.com/PyRetri/PyRetri.git
 cd pyretri
 ```
 
