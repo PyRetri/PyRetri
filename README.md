@@ -27,7 +27,7 @@ The toolbox supports several popluar and prominent methods of image retrieval an
   - Normalize
 - **Feature Representation**
   - Global Average Pooling (GAP), Global Max Pooling (GMP)
-  - [R-MAC](https://arxiv.org/pdf/1511.05879.pdf), [SPoC](https://arxiv.org/pdf/1510.07493.pdf), [CroW](https://arxiv.org/pdf/1512.04065.pdf), [GeM](https://pdfs.semanticscholar.org/a2ca/e0ed91d8a3298b3209fc7ea0a4248b914386.pdf), [SCDA](http://www.weixiushen.com/publication/tip17SCDA.pdf), [PWA](https://arxiv.org/abs/1705.01247)
+  - [R-MAC](https://arxiv.org/pdf/1511.05879.pdf), [SPoC](https://arxiv.org/pdf/1510.07493.pdf), [CroW](https://arxiv.org/pdf/1512.04065.pdf), [GeM](https://arxiv.org/pdf/1711.02512.pdf), [SCDA](http://www.weixiushen.com/publication/tip17SCDA.pdf), [PWA](https://arxiv.org/abs/1705.01247)
   - [PCB](http://openaccess.thecvf.com/content_ECCV_2018/papers/Yifan_Sun_Beyond_Part_Models_ECCV_2018_paper.pdf)
 - **Post-processing**
   - [SVD](https://link.springer.com/chapter/10.1007%2F978-3-662-39778-7_10), [PCA](http://pzs.dstu.dp.ua/DataMining/pca/bibl/Principal%20components%20analysis.pdf)
