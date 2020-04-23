@@ -17,7 +17,7 @@ PyRetri is a versatile  deep learning based image retrieval toolbox designed wit
 
 ### Supported Methods
 
-The toolbox supports several popluar and prominent methods of image retrieval and users can also design and add their own modules.
+The toolbox supports popluar and prominent methods of image retrieval and users can also design and add their own modules.
 
 - **Pre-processing**
   - DirectReszie, PadResize, ShorterResize
