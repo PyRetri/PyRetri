@@ -29,7 +29,7 @@ Our experiments are conducted on the following environment:
 
 ```she
 git clone https://github.com/PyRetri/PyRetri.git
-cd pyretri
+cd PyRetri
 ```
 
 3. Install PyRetri.
