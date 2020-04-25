@@ -80,21 +80,22 @@ data
 │       │   ├── defense_1_good.txt
 │       │   └── ··· 
 │       └── images
-│ 					├── defense
-│ 					│   ├── paris_defense_000000.jpg
-│ 					│   └── ··· 
-│ 					└── ··· 
+│           ├── defense
+│           │   ├── paris_defense_000000.jpg
+│           │   └── ··· 
+│           └── ··· 
 ├── cub_200_2011
 │   ├── images
-│ 			├── 001.Black_footed_Albatross
-│ 			│   ├── Black_Footed_Albatross_0001_796111.jpg
-│ 			│   └── ··· 
-│       └── ···
+│   │   ├── 001.Black_footed_Albatross
+│   │   │   ├── Black_Footed_Albatross_0001_796111.jpg
+│   │   │   └── ··· 
+│   │   └── ···
+│   └── ···
 └── indoor
     ├── Images
- 		│ 	├── airport_inside
- 		│ 	│   ├── airport_inside_0001.jpg
- 		│ 	│   └── ··· 
+    │ 	├── airport_inside
+    │ 	│   ├── airport_inside_0001.jpg
+    │ 	│   └── ··· 
     │   └── ···
     └── ···
 
