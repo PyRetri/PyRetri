@@ -64,20 +64,38 @@ data
 ├── caltech101
 │   └── 101_ObjectCategories
 │       ├── accordion
-│       ├── airplanes
+│       │   ├── image_0001.jpg
+│       │   └── ··· 
 │       └── ···  
 ├── cbir
 │   ├── oxford
 │   │   ├── gt
+│   │   │   ├── all_souls_1_good.txt
+│   │   │   └── ··· 
 │   │   └── images
+│   │       ├── all_souls_000000.jpg
+│   │       └── ··· 
 │   └── pairs
 │       ├── gt
+│       │   ├── defense_1_good.txt
+│       │   └── ··· 
 │       └── images
-└── cub_200_2011
+│ 					├── defense
+│ 					│   ├── paris_defense_000000.jpg
+│ 					│   └── ··· 
+│ 					└── ··· 
+├── cub_200_2011
 │   ├── images
-│   └── ···
+│ 			├── 001.Black_footed_Albatross
+│ 			│   ├── Black_Footed_Albatross_0001_796111.jpg
+│ 			│   └── ··· 
+│       └── ···
 └── indoor
     ├── Images
+ 		│ 	├── airport_inside
+ 		│ 	│   ├── airport_inside_0001.jpg
+ 		│ 	│   └── ··· 
+    │   └── ···
     └── ···
 
 ```

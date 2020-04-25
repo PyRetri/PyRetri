@@ -58,8 +58,8 @@ Auguments:
 
 - `data`: Path of the dataset for generating data json file.
 - `save_path`: Path for saving the output file.
-- `type`: Type of the dataset collecting images. For dataset collecting images with the same label in one directory, we use `general`. For oxford/paris dataset, we use `oxford`. For re-id dataset, we use `reid`.
-- `ground_truth`: Optional. Path of the gt information, which is necessary for generating data json file of oxford/paris dataset.
+- `type`: Type of the dataset collecting images. For dataset collecting images with the same label in one directory, we use `general`. For oxford dataset, we use `oxford`. For re-id dataset, we use `reid`.
+- `ground_truth`: Optional. Path of the gt information, which is necessary for generating data json file of oxford dataset.
 
 Examples:
 
@@ -69,7 +69,7 @@ python3 main/make_data_json.py -d /data/caltech101/gallery/ -sp data_jsons/calte
 
 python3 main/make_data_json.py -d /data/caltech101/query/ -sp data_jsons/caltech_query.json -t general
 
-# for oxford/paris dataset
+# for oxford dataset
 python3 main/make_data_json.py -d /data/cbir/oxford/gallery/ -sp data_jsons/oxford_gallery.json -t oxford -gt /data/cbir/oxford/gt/
 
 python3 main/make_data_json.py -d /data/cbir/oxford/query/ -sp data_jsons/oxford_query.json -t oxford -gt /data/cbir/oxford/gt/
@@ -80,7 +80,7 @@ python3 main/make_data_json.py -d /data/market1501/bounding_box_test/ -sp data_j
 python3 main/make_data_json.py -d /data/market1501/query/ -sp data_jsons/market_query.json -t reid
 ```
 
-Note: Oxford/Paris dataset contains the ground truth of each query image in a txt file, so remember to give the path of gt file when generating data json file of Oxford/Paris.
+Note: Oxford dataset contains the ground truth of each query image in a txt file, so remember to give the path of gt file when generating data json file of Oxford.
 
 ## Extract
 
