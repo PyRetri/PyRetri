@@ -4,7 +4,7 @@
 
 PyRetri (pronounced as [ˈperɪˈtriː]) is a unified deep learning based image retrieval toolbox based on PyTorch, which is designed for researchers and engineers.
 
-![image](teaser\ image/overview.png)
+![image](teaser image/overview.png)
 
 ### Major Features
 
