@@ -1,4 +1,4 @@
-# PyRetri
+PyRetri
 
 ## Introduction
 
@@ -54,7 +54,7 @@ Results and models are available in [MODEL_ZOO.md](docs/MODEL_ZOO.md).
 
 If you use this toolbox in your research, please cite this project.
 
-```shell
+```
 @article{PyRetri,
   title={PyRetri: A PyTorch-based Library for Image Retrieval by Deep Convolutional Neural Networks},
   author={Hu, Benyi and Song, Ren-Jie and Wei, Xiu-Shen and Yao, Yazhou and Hua, Xian-Sheng and Liu, Yuehu},
