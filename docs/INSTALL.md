@@ -3,10 +3,9 @@ Installation
 ## Requirements
 
 - Linux (Windows is not officially supported)
-- Python 3.5 or higher
+- Python 3
 - PyTorch 1.2.0 or higher
 - torchvison 0.4.0 or higher
-- CUDA 9.0 or higher
 - numpy
 - sklearn
 - yacs
@@ -14,9 +13,9 @@ Installation
 
 Our experiments are conducted on the following environment:
 
+- Python 3.5
 - PyTorch 1.2.0
 - torchvision 0.4.0
-- CUDA 9.0
 - numpy 1.17.2
 - sklearn 0.21.3
 - tqdm 4.36.1
