@@ -1,5 +1,7 @@
 # PyRetri
 
+Benyi Hu, Ren-Jie Song, Xiu-Shen Wei*, Yazhou Yao, Xian-Sheng Hua, Yuehu Liu
+
 ## Introduction
 
 PyRetri (pronounced as [ˈperɪˈtriː]) is a unified deep learning based image retrieval toolbox based on PyTorch, which is designed for researchers and engineers.
