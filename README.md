@@ -36,6 +36,10 @@ The toolbox supports popluar and prominent methods of unsupervised image retriev
   - [DBA](https://www.robots.ox.ac.uk/~vgg/publications/2012/Arandjelovic12/arandjelovic12.pdf)
   - [QE](https://www.robots.ox.ac.uk/~vgg/publications/papers/chum07b.pdf), [K-reciprocal](https://arxiv.org/pdf/1701.08398.pdf)
 
+## Some News
+
+ **06 May 2020:** Our paper is online, you are welcomed to download the paper at [here](https://128.84.21.199/abs/2005.02154).
+
 ## License
 
 This project is released under the [Apache 2.0 license](LICENSE).
