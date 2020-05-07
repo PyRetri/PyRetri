@@ -2,7 +2,7 @@
 
 Benyi Hu, Ren-Jie Song, Xiu-Shen Wei*, Yazhou Yao, Xian-Sheng Hua, Yuehu Liu
 
-Correspond author: [Xiu-Shen Wei](http://www.weixiushen.com/)
+Corresponding author: [Xiu-Shen Wei](http://www.weixiushen.com/)
 
 ## Introduction
 
