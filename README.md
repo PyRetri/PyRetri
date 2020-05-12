@@ -1,4 +1,8 @@
-![image](teaser_image/logo.jpg)
+```html
+<p align="center">
+    <img src='./teaser_image/logo.jpg'>
+</p>
+```
 
 # PyRetri
 
