@@ -1,6 +1,6 @@
 ```html
 <p align="center">
-    <img src='./teaser_image/logo.jpg'>
+    <img src='teaser_image/logo.jpg'>
 </p>
 ```
 
