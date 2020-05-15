@@ -59,9 +59,9 @@ class QE(ReRankerBase):
             query_fea = requery_fea
             dis = self._cal_dis(query_fea, gallery_fea)
 
-        if kr is None:
-            sorted_index = torch.argsort(dis, dim=1)
-        else:
-            sorted_index = kr(query_fea, gallery_fea, dis)
+            if kr is None:
+                sorted_index = torch.argsort(dis, dim=1)
+            else:
+                sorted_index = kr(query_fea, gallery_fea, dis)
 
         return sorted_index
