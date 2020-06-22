@@ -109,7 +109,7 @@ python3 main/split_dataset.py [-d ${dataset}] [-sf ${split_file}]
 Arguments:
 
 - `dataset`: Path of the dataset to be splitted.
-- `split_file`: Path of the division protocol txt file, with each line corresponding to one image:<image_path> <is_gallery_image>. <image_path> corresponds to the relative path of the image, and a value of 1 or 0 for <is_gallery_image> denotes that the file is in the gallery or query set, respectively.
+- `split_file`: **Absolute Path** of the division protocol txt file, with each line corresponding to one image:<image_path> <is_gallery_image>. <image_path> corresponds to the relative path of the image, and a value of 1 or 0 for <is_gallery_image> denotes that the file is in the gallery or query set, respectively.
 
 Examples:
 
