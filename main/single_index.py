@@ -50,7 +50,7 @@ def main():
     stacked_feature = list()
     for name in cfg.index.feature_names:
         assert name in img_fea_info[0], "invalid feature name: {} not in {}!".format(name, img_fea_info[0].keys())
-        stacked_feature.append(img_fea_info[0][name])
+        stacked_feature.append(img_fea_info[0][name].cpu())
     img_fea = np.concatenate(stacked_feature, axis=1)
 
     # load gallery features
