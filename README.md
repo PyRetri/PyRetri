@@ -70,11 +70,16 @@ This project is released under the [Apache 2.0 license](LICENSE).
 If you use this toolbox in your research, please cite this paper.
 
 ```
-@article{PyRetri,
-  title = {PyRetri: A PyTorch-based Library for Unsupervised Image Retrieval by Deep Convolutional Neural Networks},
-  author = {Hu, Benyi and Song, Ren-Jie and Wei, Xiu-Shen and Yao, Yazhou and Hua, Xian-Sheng and Liu, Yuehu},
-  journal= {arXiv preprint arXiv:2005.02154},
-  year = {2020}
+@inproceedings{Hu2020PyRetri,
+  author    = {Benyi Hu and Ren{-}Jie Song and
+               Xiu{-}Shen Wei and Yazhou Yao and
+               Xian{-}Sheng Hua and Yuehu Liu},
+  title     = {PyRetri: {A} PyTorch-based Library for Unsupervised Image Retrieval
+               by Deep Convolutional Neural Networks},
+  booktitle = {{ACM} International Conference on Multimedia ({ACM MM})},
+  pages     = {4461--4464},
+  publisher = {{ACM}},
+  year      = {2020},
 }
 ```
 
