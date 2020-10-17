@@ -78,7 +78,6 @@ If you use this toolbox in your research, please cite this paper.
                by Deep Convolutional Neural Networks},
   booktitle = {{ACM} International Conference on Multimedia ({ACM MM})},
   pages     = {4461--4464},
-  publisher = {{ACM}},
   year      = {2020},
 }
 ```
