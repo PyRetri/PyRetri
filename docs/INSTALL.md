@@ -44,6 +44,7 @@ python3 setup.py install
 In our experiments, we use four general image retrieval datasets and two person re-identification datasets.
 
 - [Oxford5k](https://www.robots.ox.ac.uk/~vgg/data/oxbuildings/): collecting crawling images from Flickr using the names of 11 different landmarks in Oxford, which stands for landmark recognition task.
+- [Paris6k](https://www.robots.ox.ac.uk/~vgg/data/parisbuildings/)
 - [CUB-200-2011](http://www.vision.caltech.edu/visipedia/CUB-200-2011.html): containing photos of 200 bird species, which represents fine-grained visual categorization task.
 - [Indoor](http://web.mit.edu/torralba/www/indoor.html): containing indoor scene images with 67 categories, representing scene recognition task.
 - [Caltech101](http://www.vision.caltech.edu/Image_Datasets/Caltech101/): consisting pictures of objects belonging to 101 categories, standing for general object recognition task.
@@ -74,7 +75,7 @@ data
 │   │   └── images
 │   │       ├── all_souls_000000.jpg
 │   │       └── ··· 
-│   └── pairs
+│   └── paris
 │       ├── gt
 │       │   ├── defense_1_good.txt
 │       │   └── ··· 
