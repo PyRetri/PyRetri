@@ -8,7 +8,7 @@ import torch.nn as nn
 from .registry import BACKBONES
 
 from ..utils import load_state_dict
-from torchvision.models.utils import load_state_dict_from_url
+from torch.hub import load_state_dict_from_url
 
 
 # the urls for pre-trained models in torchvision.

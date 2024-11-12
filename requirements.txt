@@ -2,6 +2,6 @@
 numpy
 torch>=1.1
 torchvision>=0.4
-sklearn
+scikit-learn
 yacs
 tqdm
