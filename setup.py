@@ -192,7 +192,7 @@ if __name__ == '__main__':
         ],
         license='Apache License 2.0',
         install_requires=[
-            'numpy', 'torch>=2.2.2', 'torchvision==0.18.1', 'scikit-learn', 'yacs', 'tqdm',
+            'numpy', 'torch>=2.2.2', 'torchvision>=0.17.2', 'scikit-learn', 'yacs', 'tqdm',
         ],
         packages=find_packages(),
         zip_safe=False)
